@@ -1,0 +1,43 @@
+﻿<Window x:Class="Lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Графический редактор" Height="600" Width="850" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Панель управления -->
+        <StackPanel Grid.Column="0" Background="#F0F0F0" Margin="10,10,10,10" >
+
+            <TextBlock Text="X начальное:"/>
+            <TextBox x:Name="TxtX" Text="50" Margin="0,2,0,8"/>
+            <TextBlock Text="Y начальное:"/>
+            <TextBox x:Name="TxtY" Text="50" Margin="0,2,0,8"/>
+            <TextBlock Text="Ширина / Размер:"/>
+            <TextBox x:Name="TxtWidth" Text="120" Margin="0,2,0,8"/>
+            <TextBlock Text="Высота:"/>
+            <TextBox x:Name="TxtHeight" Text="80" Margin="0,2,0,15"/>
+
+            <TextBlock Text="Создание фигур:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <Button Content="Создать Прямоугольник" Click="BtnCreateRectangle_Click" Margin="0,2"/>
+            <Button Content="Создать Квадрат" Click="BtnCreateSquare_Click" Margin="0,2"/>
+            <Button Content="Создать Треугольник" Click="BtnCreateTriangle_Click" Margin="0,2,0,15"/>
+            <Button Content="Случайный Прямоуг." Click="BtnRandomRectangle_Click" Foreground="DarkBlue" Margin="0,2"/>
+            <Button Content="Случайный Треугольник" Click="BtnRandomTriangle_Click" Foreground="DarkGreen" Margin="0,2,0,25"/>
+            <Button Content="Очистить холст" Click="BtnClear_Click" Background="MistyRose"/>
+
+        </StackPanel>
+
+        <!-- Холст для рисования -->
+        <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1,0,0,0">
+        <Canvas x:Name="MainCanvas" Background="White" 
+                    MouseDown="MainCanvas_MouseDown" 
+                    MouseMove="MainCanvas_MouseMove" 
+                    MouseUp="MainCanvas_MouseUp"/>
+        </Border>
+    </Grid>
+</Window>
